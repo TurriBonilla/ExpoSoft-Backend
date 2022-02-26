@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExpoSoft.Domain.Entities
 {
-    class Business
+    public class Business
     {
     }
 }
