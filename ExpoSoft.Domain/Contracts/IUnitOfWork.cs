@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExpoSoft.Domain.Entities
+namespace ExpoSoft.Domain.Contracts
 {
-    public class HistoricalScore : Score
+    public interface IUnitOfWork
     {
+        void Commit();
     }
 }

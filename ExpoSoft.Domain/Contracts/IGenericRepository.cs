@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using ExpoSoft.Domain.Base;
 
-namespace ExpoSoft.Domain.Base
+namespace ExpoSoft.Domain.Contracts
 {
-    interface IGenericRepository<T> where T : BaseEntity
+    public interface IGenericRepository<T> where T : BaseEntity
     {
         T Find(object id);
         
