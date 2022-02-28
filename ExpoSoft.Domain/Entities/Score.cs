@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ExpoSoft.Domain.Entities
 {
-    public abstract class Score : Entity<int>, IAggregateRoot
+    public abstract class Score : Entity<int>
     {
     }
 }
