@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExpoSoft.Domain.Entities
+namespace ExpoSoft.Domain.Base
 {
-    public class HistoricalScore : Score
+    public interface IEntity<T>
     {
+        T Id { get; set; }
     }
 }
