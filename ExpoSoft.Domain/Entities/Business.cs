@@ -46,6 +46,18 @@ namespace ExpoSoft.Domain.Entities
             {
                 return "La contraseña que está intentando ingresar es igual a la anterior, intente con una contraseña diferente.";
             }
+            if (password.Length < 8)
+            {
+                return "La contraseña debe tener un minimo de 8 caracteres.";
+            }
+            if (password.Length > 15)
+            {
+                return "La contraseña debe tener como maximo 15 caracteres.";
+            }
+            if(password.Contains(" "))
+            {
+                return "La contraseña no debe contener espacios.";
+            }
             throw new NotImplementedException();
         }
     }
