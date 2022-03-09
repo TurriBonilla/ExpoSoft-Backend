@@ -1,5 +1,7 @@
 ﻿using NUnit.Framework;
 using ExpoSoft.Domain.Entities;
+using ExpoSoft.Domain.Test.BusinessTest;
+
 
 namespace ExpoSoft.Domain.Test.BusinessTest
 {
@@ -38,19 +40,7 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         public void LaContraseñaNoPuedeSerIgualALaAnterior()
         {
             //ARRANGE //PREPARAR // DADO // GIVEN
-            var business = new Business(
-                "ExpoSoft", 
-                "1524587", 
-                "3012736897", 
-                "5708502", 
-                "ExpoSoft123@", 
-                "exposoft@exposoft.com", 
-                "2021", 
-                "Informática", 
-                "Valledupar", 
-                "CRR 5A #20-4", 
-                "Jhade"
-                );
+            var business = BusinessMother.CreateBusiness();
             // ACT // ACCION // CUANDO // WHEN
             var resultado = business.ModifyPassword("ExpoSoft123@");
             //ASSERT //AFIRMACION //ENTONCES //THEN
@@ -84,19 +74,7 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         public void LaContraseñaNoPuedeSerVacia()
         {
             //ARRANGE //PREPARAR // DADO // GIVEN
-            var business = new Business(
-                "ExpoSoft", 
-                "1524587", 
-                "3012736897", 
-                "5708502", 
-                "ExpoSoft123@", 
-                "exposoft@exposoft.com", 
-                "2021", 
-                "Informática", 
-                "Valledupar", 
-                "CRR 5A #20-4", 
-                "Jhade"
-                );
+            var business = BusinessMother.CreateBusiness();
 
             // ACT // ACCION // CUANDO // WHEN
             var resultado = business.ModifyPassword("");
@@ -130,19 +108,7 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         public void LaContraseñaNoPuedeTenerMenosDeOchoCaracteres()
         {
             //ARRANGE //PREPARAR // DADO // GIVEN
-            var business = new Business(
-                "ExpoSoft",
-                "1524587",
-                "3012736897",
-                "5708502",
-                "ExpoSoft123@",
-                "exposoft@exposoft.com",
-                "2021",
-                "Informática",
-                "Valledupar",
-                "CRR 5A #20-4",
-                "Jhade"
-                );
+            var business = BusinessMother.CreateBusiness();
             // ACT // ACCION // CUANDO // WHEN
             var resultado = business.ModifyPassword("ABCDe1$");
             //ASSERT //AFIRMACION //ENTONCES //THEN
@@ -175,19 +141,7 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         public void LaContraseñaNoPuedeTenerMasDeQuinceCaracteres()
         {
             //ARRANGE //PREPARAR // DADO // GIVEN
-            var business = new Business(
-                "ExpoSoft",
-                "1524587",
-                "3012736897",
-                "5708502",
-                "ExpoSoft123@",
-                "exposoft@exposoft.com",
-                "2021",
-                "Informática",
-                "Valledupar",
-                "CRR 5A #20-4",
-                "Jhade"
-                );
+            var business = BusinessMother.CreateBusiness();
             // ACT // ACCION // CUANDO // WHEN
             var resultado = business.ModifyPassword("ABCDEFGHi1$23456");
             //ASSERT //AFIRMACION //ENTONCES //THEN
@@ -220,19 +174,7 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         public void LaContraseñaNoPuedeTenerEspacios()
         {
             //ARRANGE //PREPARAR // DADO // GIVEN
-            var business = new Business(
-                "ExpoSoft",
-                "1524587",
-                "3012736897",
-                "5708502",
-                "ExpoSoft123@",
-                "exposoft@exposoft.com",
-                "2021",
-                "Informática",
-                "Valledupar",
-                "CRR 5A #20-4",
-                "Jhade"
-                );
+            var business = BusinessMother.CreateBusiness();
             // ACT // ACCION // CUANDO // WHEN
             var resultado = business.ModifyPassword("ABCDEFGHi1$ ");
             //ASSERT //AFIRMACION //ENTONCES //THEN
@@ -265,19 +207,7 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         public void LaContraseñaNoTieneMayusculas()
         {
             //ARRANGE //PREPARAR // DADO // GIVEN
-            var business = new Business(
-                "ExpoSoft",
-                "1524587",
-                "3012736897",
-                "5708502",
-                "ExpoSoft123@",
-                "exposoft@exposoft.com",
-                "2021",
-                "Informática",
-                "Valledupar",
-                "CRR 5A #20-4",
-                "Jhade"
-                );
+            var business = BusinessMother.CreateBusiness();
             // ACT // ACCION // CUANDO // WHEN
             var resultado = business.ModifyPassword("abcdefghi1$");
             //ASSERT //AFIRMACION //ENTONCES //THEN
@@ -310,19 +240,7 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         public void LaContraseñaNoTieneMinusculas()
         {
             //ARRANGE //PREPARAR // DADO // GIVEN
-            var business = new Business(
-                "ExpoSoft",
-                "1524587",
-                "3012736897",
-                "5708502",
-                "ExpoSoft123@",
-                "exposoft@exposoft.com",
-                "2021",
-                "Informática",
-                "Valledupar",
-                "CRR 5A #20-4",
-                "Jhade"
-                );
+            var business = BusinessMother.CreateBusiness();
             // ACT // ACCION // CUANDO // WHEN
             var resultado = business.ModifyPassword("ABCDEFGHI1$");
             //ASSERT //AFIRMACION //ENTONCES //THEN
@@ -355,19 +273,7 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         public void LaContraseñaNoTieneNumeros()
         {
             //ARRANGE //PREPARAR // DADO // GIVEN
-            var business = new Business(
-                "ExpoSoft",
-                "1524587",
-                "3012736897",
-                "5708502",
-                "ExpoSoft123@",
-                "exposoft@exposoft.com",
-                "2021",
-                "Informática",
-                "Valledupar",
-                "CRR 5A #20-4",
-                "Jhade"
-                );
+            var business = BusinessMother.CreateBusiness();
             // ACT // ACCION // CUANDO // WHEN
             var resultado = business.ModifyPassword("ABCDEFGHi$");
             //ASSERT //AFIRMACION //ENTONCES //THEN
@@ -377,19 +283,7 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         public void LaContraseñaNoTieneCaracteresEspeciales()
         {
             //ARRANGE //PREPARAR // DADO // GIVEN
-            var business = new Business(
-                "ExpoSoft",
-                "1524587",
-                "3012736897",
-                "5708502",
-                "ExpoSoft123@",
-                "exposoft@exposoft.com",
-                "2021",
-                "Informática",
-                "Valledupar",
-                "CRR 5A #20-4",
-                "Jhade"
-                );
+            var business = BusinessMother.CreateBusiness();
             // ACT // ACCION // CUANDO // WHEN
             var resultado = business.ModifyPassword("ABCDEFGHi1");
             //ASSERT //AFIRMACION //ENTONCES //THEN
