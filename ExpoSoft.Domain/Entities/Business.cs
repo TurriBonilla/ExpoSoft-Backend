@@ -71,7 +71,7 @@ namespace ExpoSoft.Domain.Entities
                 int asciChar = (int)c;
 
                 return (
-                    char.IsNumber(c) || (asciChar != 32 && asciChar >= 65 && asciChar <= 90 && asciChar >= 97 && asciChar <= 122 && asciChar >= 160 && asciChar <= 165)
+                    !char.IsNumber(c) && (asciChar == 32 || (asciChar >= 65 && asciChar <= 90) || (asciChar >= 97 && asciChar <= 122) || (asciChar >= 160 && asciChar <= 165))
                 );
             }) && name.Length >= 3 && name.Length <= 30)
             {
