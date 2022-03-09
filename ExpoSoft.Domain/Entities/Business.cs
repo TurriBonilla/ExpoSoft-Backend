@@ -46,6 +46,10 @@ namespace ExpoSoft.Domain.Entities
 
         public string ModifyName(string name)
         {
+            if (name.Equals(""))
+            {
+                return "El nombre es requerido.";
+            }
             if (name.Any(c =>
             {
                 int asciChar = (int)c;
@@ -55,15 +59,11 @@ namespace ExpoSoft.Domain.Entities
                 );
             }))
             {
-                return "El nombre solo puede tener letras";
+                return "El nombre solo puede tener letras.";
             }
-            if (name.Length < 3)
+            if (name.Length < 3 || name.Length > 30)
             {
-                return "No puede ingresar un nombre con menos de 3 caracteres";
-            }
-            if (name.Length > 30)
-            {
-                return "No puede ingresar un nombre con más de 30 caracteres";
+                return "No puede ingresar un nombre con menos de 3 caracteres y más de 30 caracteres.";
             }
 
             if (name.Any(c =>
@@ -79,9 +79,7 @@ namespace ExpoSoft.Domain.Entities
             }
 
             throw new NotImplementedException();
-
         }
-
         public string ModifyPassword(string password)
         {
             if (password.Equals(""))
@@ -115,7 +113,7 @@ namespace ExpoSoft.Domain.Entities
                 return "La contraseña debe tener al menos una letra en minuscula, mayuscula, un número y un caracteres especial.";
             }
 
-            if (!password.Equals("") && !Password.Equals(password) && password.Length >= 8 && password.Length <= 15 && !password.Contains(" ") && password.Any(c => char.IsLower(c)) && password.Any(c => char.IsUpper(c)) && password.Any(c => char.IsNumber(c)) && !password.Any(c =>
+            if (!password.Equals("") && !Password.Equals(password) && password.Length >= 8 && password.Length <= 15 && !password.Contains(" ") && password.Any(c => char.IsLower(c)) && password.Any(c => char.IsUpper(c)) && password.Any(c => char.IsNumber(c)) && password.Any(c =>
             {
                 int asciChar = (int)c;
 
