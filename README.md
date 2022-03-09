@@ -31,19 +31,35 @@
 
 ## Valores límites
 
-![image](https://user-images.githubusercontent.com/83921891/157145883-9fcd3f2e-42d4-4aba-9e50-07065799155b.png)
+|Dato de entrada||
+|--|--|
+|**Contraseña**|"123...7"</br>"123...8"</br>"123…15"</br>"123..16"</br>|
 
-![image](https://user-images.githubusercontent.com/83921891/157145910-490f892c-0370-4982-8d17-8d32e0ddcedb.png)
+|Dato de entrada||
+|--|--|
+|**Confirmar contraseña**|"123...7"</br>"123...8"</br>"123…15"</br>"123..16"|
 
-![image](https://user-images.githubusercontent.com/83921891/157145928-438d57a5-a3fb-485b-9130-58c5cbc071b4.png)
+|Dato de entrada||
+|--|--|
+|**Nombre**|"as"</br>"asd"</br>"asd..30"</br>"asd..31"|
 
-![image](https://user-images.githubusercontent.com/83921891/157145940-db198982-ab06-4c05-a400-9d552d510666.png)
+|Dato de entrada||
+|--|--|
+|**Apellidos**|"as"</br>"asd"</br>"asd..30"</br>"asd..31"|
 
-![image](https://user-images.githubusercontent.com/83921891/157145952-c9384c67-58c2-4e43-995e-4db8c1750597.png)
+|Dato de entrada||
+|--|--|
+|**Nombre de la empresa**|"as"</br>"asd"</br>"asd..100"</br>"asd..101"|
 
-![image](https://user-images.githubusercontent.com/83921891/157145959-fdd23b65-da80-47e5-954b-675d1ba3a57a.png)
+|Dato de entrada||
+|--|--|
+|**Teléfono celular**|"123...9"</br>"123...10"</br>"123…15"</br>"123..11"</br>|
 
-![image](https://user-images.githubusercontent.com/83921891/157145966-7ec3bddd-be0f-4faa-993b-0ee18f6d9e1b.png)
+|Dato de entrada||
+|--|--|
+|**Teléfono fijo**|"123...6"</br>"123...7"</br>"123…15"</br>"123..8"</br>|
+
+
 
 
 
