@@ -11,31 +11,29 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         public void Setup()
         {
         }
-
         /*
-         * Modificar contraseña
-         *** H1: Como empresa, quiero modificar mi contraseña de acceso en el sistema para tener mayor seguridad.
-         *
-         * Criterio de Aceptación:
-         *** 1.0 La contraseña no puede ser igual a la anterior.
-         *
-         * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
-         * Nombre: ExpoSoft
-         * Nit: 1524587
-         * Teléfono celular: 301 273 68 97
-         * Teléfono fijo: 570 85 02
-         * Contraseña: ExpoSoft123@
-         * Email: exposoft@exposoft.com
-         * Año de constitución: 2021
-         * Tipo de empresa: Informática
-         * Ubicación de la empresa: Valledupar
-         * 
-         * CUANDO se ingresa una contraseña igual a la anterior.
-         * 
-         * ENTONCES el sistema presentará un mensaje. 
-         *** ("La contraseña que está intentando ingresar es igual a la anterior, intente con una contraseña diferente.").
+        * Modificar contraseña
+        *** H1: Como empresa, quiero modificar mi contraseña de acceso en el sistema para tener mayor seguridad.
+        *
+        * Criterio de Aceptación:
+        *** 1.0 La contraseña no puede ser igual a la anterior.
+        *
+        * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
+        * Nombre: ExpoSoft
+        * Nit: 1524587
+        * Teléfono celular: 301 273 68 97
+        * Teléfono fijo: 570 85 02
+        * Contraseña: ExpoSoft123@
+        * Email: exposoft@exposoft.com
+        * Año de constitución: 2021
+        * Tipo de empresa: Informática
+        * Ubicación de la empresa: Valledupar
+        * 
+        * CUANDO se ingresa una contraseña igual a la anterior.
+        * 
+        * ENTONCES el sistema presentará un mensaje. 
+        *** ("La contraseña que está intentando ingresar es igual a la anterior, intente con una contraseña diferente.").
         */
-
         [Test]
         public void LaContraseñaNoPuedeSerIgualALaAnterior()
         {
@@ -47,29 +45,30 @@ namespace ExpoSoft.Domain.Test.BusinessTest
             Assert.AreEqual("La contraseña que está intentando ingresar es igual a la anterior, intente con una contraseña diferente.", resultado);
         }
         /*
-         * Modificar contraseña
-         *** H1: Como empresa, quiero modificar mi contraseña de acceso en el sistema para tener mayor seguridad.
-         *
-         * Criterio de Aceptación:
-         *** 1.0 La contraseña ingresada es vacia.
-         *
-         * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
-         * Nombre: ExpoSoft
-         * Nit: 1524587
-         * Teléfono celular: 301 273 68 97
-         * Teléfono fijo: 570 85 02
-         * Contraseña: ExpoSoft123@
-         * Email: exposoft@exposoft.com
-         * Año de constitución: 2021
-         * Tipo de empresa: Informática
-         * Ubicación de la empresa: Valledupar
-         * 
-         * CUANDO se ingresa una contraseña vacia.
-         * 
-         * ENTONCES el sistema presentará un mensaje. 
-         *** ("No puede ingresar una contraseña vacia.").
+        * Modificar contraseña
+        *** H1: Como empresa, quiero modificar mi contraseña de acceso en el sistema para tener mayor seguridad.
+        *
+        * Criterio de Aceptación:
+        *** 1.0 La contraseña ingresada es vacia.
+        *
+        * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
+        * Nombre: ExpoSoft
+        * Nit: 1524587
+        * Teléfono celular: 301 273 68 97
+        * Teléfono fijo: 570 85 02
+        * Contraseña: ExpoSoft123@
+        * Email: exposoft@exposoft.com
+        * Año de constitución: 2021
+        * Tipo de empresa: Informática
+        * Ubicación de la empresa: Valledupar
+        * Nombre del propietario: Jhade 
+        * Apellidos del propietario: Bonilla
+        * 
+        * CUANDO se ingresa una contraseña vacia.
+        * 
+        * ENTONCES el sistema presentará un mensaje. 
+        *** ("No puede ingresar una contraseña vacia.").
         */
-
         [Test]
         public void LaContraseñaNoPuedeSerVacia()
         {
@@ -98,6 +97,8 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * Año de constitución: 2021
         * Tipo de empresa: Informática
         * Ubicación de la empresa: Valledupar
+        * Nombre del propietario: Jhade 
+        * Apellidos del propietario: Bonilla
         * 
         * CUANDO se ingresa una contraseña con menos de ocho caracteres.
         * 
@@ -131,6 +132,8 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * Año de constitución: 2021
         * Tipo de empresa: Informática
         * Ubicación de la empresa: Valledupar
+        * Nombre del propietario: Jhade 
+        * Apellidos del propietario: Bonilla
         * 
         * CUANDO se ingresa una contraseña con más de quince caracteres.
         * 
@@ -164,6 +167,8 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * Año de constitución: 2021
         * Tipo de empresa: Informática
         * Ubicación de la empresa: Valledupar
+        * Nombre del propietario: Jhade 
+        * Apellidos del propietario: Bonilla
         * 
         * CUANDO se ingresa una contraseñaque contiene espacios.
         * 
@@ -197,6 +202,8 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * Año de constitución: 2021
         * Tipo de empresa: Informática
         * Ubicación de la empresa: Valledupar
+        * Nombre del propietario: Jhade 
+        * Apellidos del propietario: Bonilla
         * 
         * CUANDO se ingresa una contraseña que no tiene mayusculas
         * 
@@ -230,6 +237,8 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * Año de constitución: 2021
         * Tipo de empresa: Informática
         * Ubicación de la empresa: Valledupar
+        * Nombre del propietario: Jhade 
+        * Apellidos del propietario: Bonilla
         * 
         * CUANDO se ingresa una contraseña que no tiene minusculas
         * 
@@ -263,6 +272,8 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * Año de constitución: 2021
         * Tipo de empresa: Informática
         * Ubicación de la empresa: Valledupar
+        * Nombre del propietario: Jhade 
+        * Apellidos del propietario: Bonilla
         * 
         * CUANDO se ingresa una contraseña que no tiene minusculas
         * 
@@ -296,6 +307,8 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * Año de constitución: 2021
         * Tipo de empresa: Informática
         * Ubicación de la empresa: Valledupar
+        * Nombre del propietario: Jhade 
+        * Apellidos del propietario: Bonilla
         * 
         * CUANDO se ingresa una contraseña que no tiene caracteres especiales
         * 
@@ -311,6 +324,48 @@ namespace ExpoSoft.Domain.Test.BusinessTest
             var resultado = business.ModifyPassword("ABCDEFGHi1");
             //ASSERT //AFIRMACION //ENTONCES //THEN
             Assert.AreEqual("La contraseña debe tener al menos una letra en minuscula, mayuscula, un número y un caracteres especial.", resultado);
+        }
+        /*
+        * Modificar contraseña
+        *** H1: Como empresa, quiero modificar mi contraseña de acceso en el sistema para tener mayor seguridad.
+        *
+        * Criterio de Aceptación:
+        *** 1.0 La contraseña no puede ser igual a la anterior.
+        *** 1.1 La contraseña debe contener por lo menos una letra mayúscula.
+        *** 1.2 La contraseña debe contener por lo menos una letra minúscula.
+        *** 1.3 La contraseña debe contener por lo menos un caracter especial.
+        *** 1.4 La contraseña debe contener por lo menos un número.
+        *** 1.5 La contraseña no debe contener espacio.
+        *** 1.6 La contraseña debe contener mínimo ocho caracteres
+        *** 1.7 La contraseña debe contener máximo quince caracteres.
+        *
+        * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
+        * Nombre: ExpoSoft
+        * Nit: 1524587
+        * Teléfono celular: 301 273 68 97
+        * Teléfono fijo: 570 85 02
+        * Contraseña: ExpoSoft123@
+        * Email: exposoft@exposoft.com
+        * Año de constitución: 2021
+        * Tipo de empresa: Informática
+        * Ubicación de la empresa: Valledupar
+        * Nombre del propietario: Jhade 
+        * Apellidos del propietario: Bonilla
+        * 
+        * CUANDO se ingresa una contraseña que no tiene caracteres especiales
+        * 
+        * ENTONCES el sistema presentará un mensaje. 
+        *** ("¡La password es correcta!").
+        */
+        [Test]
+        public void LaContraseñaCumpleConLosCriteriosDeAceptacion()
+        {
+            //ARRANGE //PREPARAR // DADO // GIVEN
+            var business = BusinessMother.CreateBusiness();
+            // ACT // ACCION // CUANDO // WHEN
+            var resultado = business.ModifyPassword("ABCDEFGHi1/");
+            //ASSERT //AFIRMACION //ENTONCES //THEN
+            Assert.AreEqual("¡La password es correcta!", resultado);
         }
     }
 }
