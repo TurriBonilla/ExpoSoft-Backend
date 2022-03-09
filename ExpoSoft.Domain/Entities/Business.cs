@@ -28,7 +28,6 @@ namespace ExpoSoft.Domain.Entities
             Score = null;
             HistoricalScores = null;
         }
-
         private string Name { get; set; }
         private string Nit { get; set; }
         private string Phone { get; set; }
@@ -93,31 +92,15 @@ namespace ExpoSoft.Domain.Entities
             {
                 return "La contraseña que está intentando ingresar es igual a la anterior, intente con una contraseña diferente.";
             }
-            if (password.Length < 8)
+            if (password.Length < 8 || password.Length > 15)
             {
-                return "La contraseña debe tener un minimo de 8 caracteres.";
-            }
-            if (password.Length > 15)
-            {
-                return "La contraseña debe tener como maximo 15 caracteres.";
+                return "La contraseña no puede tener menos de 8 caracteres y más de 15 caracteres.";
             }
             if (password.Contains(" "))
             {
                 return "La contraseña no debe contener espacios.";
             }
-            if (!password.Any(c => char.IsLower(c)))
-            {
-                return "La contraseña debe tener al menos una minuscula.";
-            }
-            if (!password.Any(c => char.IsUpper(c)))
-            {
-                return "La contraseña debe tener al menos una mayuscula.";
-            }
-            if (!password.Any(c => char.IsNumber(c)))
-            {
-                return "La contraseña debe tener al menos un número.";
-            }
-            if (!password.Any(c =>
+            if (!password.Any(c => char.IsLower(c)) || !password.Any(c => char.IsUpper(c)) || !password.Any(c => char.IsNumber(c)) || !password.Any(c =>
             {
                 int asciChar = (int)c;
 
@@ -129,7 +112,7 @@ namespace ExpoSoft.Domain.Entities
                 );
             }))
             {
-                return "La contraseña debe tener al menos un caracter especial.";
+                return "La contraseña debe tener al menos una letra en minuscula, mayuscula, un número y un caracteres especial.";
             }
 
             if (!password.Equals("") && !Password.Equals(password) && password.Length >= 8 && password.Length <= 15 && !password.Contains(" ") && password.Any(c => char.IsLower(c)) && password.Any(c => char.IsUpper(c)) && password.Any(c => char.IsNumber(c)) && !password.Any(c =>
