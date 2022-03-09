@@ -31,32 +31,32 @@
 
 ## Valores límites
 
-|Dato de entrada||
-|--|--|
+|**Dato de entrada**||
+|:--:|:--:|
 |**Contraseña**|"123...7"</br>"123...8"</br>"123…15"</br>"123..16"</br>|
 
-|Dato de entrada||
-|--|--|
+|**Dato de entrada**||
+|:--:|:--:|
 |**Confirmar contraseña**|"123...7"</br>"123...8"</br>"123…15"</br>"123..16"|
 
-|Dato de entrada||
-|--|--|
+|**Dato de entrada**||
+|:--:|:--:|
 |**Nombre**|"as"</br>"asd"</br>"asd..30"</br>"asd..31"|
 
-|Dato de entrada||
-|--|--|
+|**Dato de entrada**||
+|:--:|:--:|
 |**Apellidos**|"as"</br>"asd"</br>"asd..30"</br>"asd..31"|
 
-|Dato de entrada||
-|--|--|
+|**Dato de entrada**||
+|:--:|:--:|
 |**Nombre de la empresa**|"as"</br>"asd"</br>"asd..100"</br>"asd..101"|
 
-|Dato de entrada||
-|--|--|
+|**Dato de entrada**||
+|:--:|:--:|
 |**Teléfono celular**|"123...9"</br>"123...10"</br>"123…15"</br>"123..11"</br>|
 
-|Dato de entrada||
-|--|--|
+|**Dato de entrada**||
+|:--:|:--:|
 |**Teléfono fijo**|"123...6"</br>"123...7"</br>"123…15"</br>"123..8"</br>|
 
 
