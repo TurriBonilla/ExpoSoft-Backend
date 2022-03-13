@@ -30,15 +30,11 @@ namespace ExpoSoft.Domain.Entities
         }
         private string Name { get; set; }
         private string Nit { get; set; }
-        private string Phone { get; set; }
-        private string Landline { get; set; }
-        private string Password { get; set; }
         private string Email { get; set; }
-        private string YearOfConstitution { get; set; }
+        private string Password { get; set; }
         private string TypeOfBusiness { get; set; }
         private string Department { get; set; }
         private string Town { get; set; }
-        private string Address { get; set; }
         private string OwnerName { get; set; }
         private string OwnerlastName { get; set; }
         private Score Score { get; set; }
@@ -77,7 +73,6 @@ namespace ExpoSoft.Domain.Entities
             {
                 return $"¡El nombre {name} es correcto!";
             }
-
             throw new NotImplementedException();
         }
         public string ModifyPassword(string password)

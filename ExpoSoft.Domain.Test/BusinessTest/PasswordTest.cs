@@ -21,14 +21,17 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
         * Nombre: ExpoSoft
         * Nit: 1524587
-        * Teléfono celular: 301 273 68 97
-        * Teléfono fijo: 570 85 02
+        * Teléfono celular: 3012736897
+        * Teléfono fijo: 5708502
         * Contraseña: ExpoSoft123@
         * Email: exposoft@exposoft.com
         * Año de constitución: 2021
         * Tipo de empresa: Informática
-        * Ubicación de la empresa: Valledupar
-        * 
+        * Departamento: Cesar
+        * Ciudad: Valledupar
+        * Nombre del propietario: Jhade 
+        * Apellidos del propietario: Bonilla
+        *
         * CUANDO se ingresa una contraseña igual a la anterior.
         * 
         * ENTONCES el sistema presentará un mensaje. 
@@ -54,13 +57,14 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
         * Nombre: ExpoSoft
         * Nit: 1524587
-        * Teléfono celular: 301 273 68 97
-        * Teléfono fijo: 570 85 02
+        * Teléfono celular: 3012736897
+        * Teléfono fijo: 5708502
         * Contraseña: ExpoSoft123@
         * Email: exposoft@exposoft.com
         * Año de constitución: 2021
         * Tipo de empresa: Informática
-        * Ubicación de la empresa: Valledupar
+        * Departamento: Cesar
+        * Ciudad: Valledupar
         * Nombre del propietario: Jhade 
         * Apellidos del propietario: Bonilla
         * 
@@ -90,13 +94,14 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
         * Nombre: ExpoSoft
         * Nit: 1524587
-        * Teléfono celular: 301 273 68 97
-        * Teléfono fijo: 570 85 02
+        * Teléfono celular: 3012736897
+        * Teléfono fijo: 5708502
         * Contraseña: ExpoSoft123@
         * Email: exposoft@exposoft.com
         * Año de constitución: 2021
         * Tipo de empresa: Informática
-        * Ubicación de la empresa: Valledupar
+        * Departamento: Cesar
+        * Ciudad: Valledupar
         * Nombre del propietario: Jhade 
         * Apellidos del propietario: Bonilla
         * 
@@ -125,13 +130,14 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
         * Nombre: ExpoSoft
         * Nit: 1524587
-        * Teléfono celular: 301 273 68 97
-        * Teléfono fijo: 570 85 02
+        * Teléfono celular: 3012736897
+        * Teléfono fijo: 5708502
         * Contraseña: ExpoSoft123@
         * Email: exposoft@exposoft.com
         * Año de constitución: 2021
         * Tipo de empresa: Informática
-        * Ubicación de la empresa: Valledupar
+        * Departamento: Cesar
+        * Ciudad: Valledupar
         * Nombre del propietario: Jhade 
         * Apellidos del propietario: Bonilla
         * 
@@ -160,13 +166,14 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
         * Nombre: ExpoSoft
         * Nit: 1524587
-        * Teléfono celular: 301 273 68 97
-        * Teléfono fijo: 570 85 02
+        * Teléfono celular: 3012736897
+        * Teléfono fijo: 5708502
         * Contraseña: ExpoSoft123@
         * Email: exposoft@exposoft.com
         * Año de constitución: 2021
         * Tipo de empresa: Informática
-        * Ubicación de la empresa: Valledupar
+        * Departamento: Cesar
+        * Ciudad: Valledupar
         * Nombre del propietario: Jhade 
         * Apellidos del propietario: Bonilla
         * 
@@ -195,13 +202,14 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
         * Nombre: ExpoSoft
         * Nit: 1524587
-        * Teléfono celular: 301 273 68 97
-        * Teléfono fijo: 570 85 02
+        * Teléfono celular: 3012736897
+        * Teléfono fijo: 5708502
         * Contraseña: ExpoSoft123@
         * Email: exposoft@exposoft.com
         * Año de constitución: 2021
         * Tipo de empresa: Informática
-        * Ubicación de la empresa: Valledupar
+        * Departamento: Cesar
+        * Ciudad: Valledupar
         * Nombre del propietario: Jhade 
         * Apellidos del propietario: Bonilla
         * 
@@ -230,13 +238,14 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
         * Nombre: ExpoSoft
         * Nit: 1524587
-        * Teléfono celular: 301 273 68 97
-        * Teléfono fijo: 570 85 02
+        * Teléfono celular: 3012736897
+        * Teléfono fijo: 5708502
         * Contraseña: ExpoSoft123@
         * Email: exposoft@exposoft.com
         * Año de constitución: 2021
         * Tipo de empresa: Informática
-        * Ubicación de la empresa: Valledupar
+        * Departamento: Cesar
+        * Ciudad: Valledupar
         * Nombre del propietario: Jhade 
         * Apellidos del propietario: Bonilla
         * 
@@ -265,13 +274,14 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
         * Nombre: ExpoSoft
         * Nit: 1524587
-        * Teléfono celular: 301 273 68 97
-        * Teléfono fijo: 570 85 02
+        * Teléfono celular: 3012736897
+        * Teléfono fijo: 5708502
         * Contraseña: ExpoSoft123@
         * Email: exposoft@exposoft.com
         * Año de constitución: 2021
         * Tipo de empresa: Informática
-        * Ubicación de la empresa: Valledupar
+        * Departamento: Cesar
+        * Ciudad: Valledupar
         * Nombre del propietario: Jhade 
         * Apellidos del propietario: Bonilla
         * 
@@ -300,13 +310,14 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
         * Nombre: ExpoSoft
         * Nit: 1524587
-        * Teléfono celular: 301 273 68 97
-        * Teléfono fijo: 570 85 02
+        * Teléfono celular: 3012736897
+        * Teléfono fijo: 5708502
         * Contraseña: ExpoSoft123@
         * Email: exposoft@exposoft.com
         * Año de constitución: 2021
         * Tipo de empresa: Informática
-        * Ubicación de la empresa: Valledupar
+        * Departamento: Cesar
+        * Ciudad: Valledupar
         * Nombre del propietario: Jhade 
         * Apellidos del propietario: Bonilla
         * 
@@ -342,13 +353,14 @@ namespace ExpoSoft.Domain.Test.BusinessTest
         * DADO que la empresa tiene una cuenta en el sistema con los siguientes datos:
         * Nombre: ExpoSoft
         * Nit: 1524587
-        * Teléfono celular: 301 273 68 97
-        * Teléfono fijo: 570 85 02
+        * Teléfono celular: 3012736897
+        * Teléfono fijo: 5708502
         * Contraseña: ExpoSoft123@
         * Email: exposoft@exposoft.com
         * Año de constitución: 2021
         * Tipo de empresa: Informática
-        * Ubicación de la empresa: Valledupar
+        * Departamento: Cesar
+        * Ciudad: Valledupar
         * Nombre del propietario: Jhade 
         * Apellidos del propietario: Bonilla
         * 
