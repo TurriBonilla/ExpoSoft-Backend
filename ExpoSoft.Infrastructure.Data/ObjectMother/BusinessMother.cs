@@ -1,6 +1,6 @@
 ﻿using ExpoSoft.Domain.Entities;
 
-namespace ExpoSoft.Domain.Test.BusinessTest
+namespace ExpoSoft.Infrastructure.Data.ObjectMother
 {
     public static class BusinessMother
     {
