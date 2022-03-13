@@ -6,7 +6,6 @@ namespace ExpoSoft.Infrastructure.Data
 {
     public class ExpoSoftContext : DbContextBase
     {
-        public ExpoSoftContext() : base() { }
         public ExpoSoftContext(DbContextOptions options) : base(options) { }
         public DbSet<Business> Businesses { get; set; }
         public DbSet<Score> Scores { get; set; }
@@ -16,7 +15,6 @@ namespace ExpoSoft.Infrastructure.Data
         {
             modelBuilder.Entity<Business>().HasKey(ent => ent.Id);
             modelBuilder.Entity<Score>().HasKey(ent => ent.Id);
-            modelBuilder.Entity<HistoricalScore>().HasKey(ent => ent.Id);
         }
     }
 }
