@@ -12,15 +12,11 @@ namespace ExpoSoft.Domain.Entities
     {
         public string Name { get; private set; }
         public string Nit { get; private set; }
-        public string Phone { get; private set; }
-        public string Landline { get; private set; }
-        public string Password { get; private set; }
         public string Email { get; private set; }
-        public string YearOfConstitution { get; private set; }
+        public string Password { get; private set; }
         public string TypeOfBusiness { get; private set; }
         public string Department { get; private set; }
         public string Town { get; private set; }
-        public string Address { get; private set; }
         public string OwnerName { get; private set; }
         public string OwnerlastName { get; private set; }
         public Score Score { get; private set; }
@@ -28,19 +24,15 @@ namespace ExpoSoft.Domain.Entities
 
         public Business() { }
 
-        public Business(string name, string nit, string phone, string landline, string password, string email, string yearOfConstitution, string typeOfBusiness, string department, string town, string address, string ownerName, string ownerlastName)
+        public Business(string name, string nit, string email, string password, string typeOfBusiness, string department, string town, string ownerName, string ownerlastName)
         {
             Name = name;
             Nit = nit;
-            Phone = phone;
-            Landline = landline;
-            Password = password;
             Email = email;
-            YearOfConstitution = yearOfConstitution;
+            Password = password;
             TypeOfBusiness = typeOfBusiness;
             Department = department;
             Town = town;
-            Address = address;
             OwnerName = ownerName;
             OwnerlastName = ownerlastName;
             Score = null;
@@ -80,7 +72,6 @@ namespace ExpoSoft.Domain.Entities
             {
                 return $"¡El nombre {name} es correcto!";
             }
-
             throw new NotImplementedException();
         }
         public string ModifyPassword(string password)
