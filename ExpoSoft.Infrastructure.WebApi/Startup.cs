@@ -1,4 +1,8 @@
+using ExpoSoft.Domain.Contracts;
+using ExpoSoft.Domain.Repositories;
 using ExpoSoft.Infrastructure.Data;
+using ExpoSoft.Infrastructure.Data.Base;
+using ExpoSoft.Infrastructure.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace ExpoSoft.Infrastructure.WebApi
 {
@@ -24,7 +29,14 @@ namespace ExpoSoft.Infrastructure.WebApi
             var connectionString = Configuration.GetConnectionString("ExpoSoftContext");
             services.AddDbContext<ExpoSoftContext>(opt => opt.UseSqlite(connectionString));
 
-            services.AddRazorPages();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IDbContext, ExpoSoftContext>();
+            services.AddScoped<IBusinessRepository, BusinessRepository>();
+            services.AddScoped<IScoreRepository, ScoreRepository>();
+            services.AddScoped<IHistoricalScoreRepository, HistoricalScoreRepository>();
+
+            services.AddControllers();
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "ExpoSoft.Infrastructure.WebApi", Version = "v1" }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,16 +45,11 @@ namespace ExpoSoft.Infrastructure.WebApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ExpoSoft.Infrastructure.WebApi v1"));
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
 
             app.UseRouting();
 
@@ -50,7 +57,7 @@ namespace ExpoSoft.Infrastructure.WebApi
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }
