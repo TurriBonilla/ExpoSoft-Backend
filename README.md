@@ -21,12 +21,3 @@
 ![image](https://user-images.githubusercontent.com/83921891/157145959-fdd23b65-da80-47e5-954b-675d1ba3a57a.png)
 
 ![image](https://user-images.githubusercontent.com/83921891/157145966-7ec3bddd-be0f-4faa-993b-0ee18f6d9e1b.png)
-
-
-
-
-
-
-
-
-

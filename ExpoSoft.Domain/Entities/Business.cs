@@ -49,6 +49,10 @@ namespace ExpoSoft.Domain.Entities
 
         public string ModifyName(string name)
         {
+            if (name.Equals(""))
+            {
+                return "El nombre es requerido.";
+            }
             if (name.Any(c =>
             {
                 int asciChar = (int)c;
@@ -58,15 +62,11 @@ namespace ExpoSoft.Domain.Entities
                 );
             }))
             {
-                return "El nombre solo puede tener letras";
+                return "El nombre solo puede tener letras.";
             }
-            if (name.Length < 3)
+            if (name.Length < 3 || name.Length > 30)
             {
-                return "No puede ingresar un nombre con menos de 3 caracteres";
-            }
-            if (name.Length > 30)
-            {
-                return "No puede ingresar un nombre con más de 30 caracteres";
+                return "No puede ingresar un nombre con menos de 3 caracteres y más de 30 caracteres.";
             }
 
             if (name.Any(c =>
@@ -74,7 +74,7 @@ namespace ExpoSoft.Domain.Entities
                 int asciChar = (int)c;
 
                 return (
-                    char.IsNumber(c) || (asciChar != 32 && asciChar >= 65 && asciChar <= 90 && asciChar >= 97 && asciChar <= 122 && asciChar >= 160 && asciChar <= 165)
+                    !char.IsNumber(c) && (asciChar == 32 || (asciChar >= 65 && asciChar <= 90) || (asciChar >= 97 && asciChar <= 122) || (asciChar >= 160 && asciChar <= 165))
                 );
             }) && name.Length >= 3 && name.Length <= 30)
             {
@@ -82,9 +82,7 @@ namespace ExpoSoft.Domain.Entities
             }
 
             throw new NotImplementedException();
-
         }
-
         public string ModifyPassword(string password)
         {
             if (password.Equals(""))
@@ -95,31 +93,15 @@ namespace ExpoSoft.Domain.Entities
             {
                 return "La contraseña que está intentando ingresar es igual a la anterior, intente con una contraseña diferente.";
             }
-            if (password.Length < 8)
+            if (password.Length < 8 || password.Length > 15)
             {
-                return "La contraseña debe tener un minimo de 8 caracteres.";
-            }
-            if (password.Length > 15)
-            {
-                return "La contraseña debe tener como maximo 15 caracteres.";
+                return "La contraseña no puede tener menos de 8 caracteres y más de 15 caracteres.";
             }
             if (password.Contains(" "))
             {
                 return "La contraseña no debe contener espacios.";
             }
-            if (!password.Any(c => char.IsLower(c)))
-            {
-                return "La contraseña debe tener al menos una minuscula.";
-            }
-            if (!password.Any(c => char.IsUpper(c)))
-            {
-                return "La contraseña debe tener al menos una mayuscula.";
-            }
-            if (!password.Any(c => char.IsNumber(c)))
-            {
-                return "La contraseña debe tener al menos un número.";
-            }
-            if (!password.Any(c =>
+            if (!password.Any(c => char.IsLower(c)) || !password.Any(c => char.IsUpper(c)) || !password.Any(c => char.IsNumber(c)) || !password.Any(c =>
             {
                 int asciChar = (int)c;
 
@@ -131,10 +113,10 @@ namespace ExpoSoft.Domain.Entities
                 );
             }))
             {
-                return "La contraseña debe tener al menos un caracter especial.";
+                return "La contraseña debe tener al menos una letra en minuscula, mayuscula, un número y un caracteres especial.";
             }
 
-            if (!password.Equals("") && !Password.Equals(password) && password.Length >= 8 && password.Length <= 15 && !password.Contains(" ") && password.Any(c => char.IsLower(c)) && password.Any(c => char.IsUpper(c)) && password.Any(c => char.IsNumber(c)) && !password.Any(c =>
+            if (!password.Equals("") && !Password.Equals(password) && password.Length >= 8 && password.Length <= 15 && !password.Contains(" ") && password.Any(c => char.IsLower(c)) && password.Any(c => char.IsUpper(c)) && password.Any(c => char.IsNumber(c)) && password.Any(c =>
             {
                 int asciChar = (int)c;
 
