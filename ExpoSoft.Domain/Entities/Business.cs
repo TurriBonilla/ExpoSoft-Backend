@@ -10,6 +10,24 @@ namespace ExpoSoft.Domain.Entities
 {
     public class Business : Entity<int>, IAggregateRoot
     {
+        public string Name { get; private set; }
+        public string Nit { get; private set; }
+        public string Phone { get; private set; }
+        public string Landline { get; private set; }
+        public string Password { get; private set; }
+        public string Email { get; private set; }
+        public string YearOfConstitution { get; private set; }
+        public string TypeOfBusiness { get; private set; }
+        public string Department { get; private set; }
+        public string Town { get; private set; }
+        public string Address { get; private set; }
+        public string OwnerName { get; private set; }
+        public string OwnerlastName { get; private set; }
+        public Score Score { get; private set; }
+        public List<HistoricalScore> HistoricalScores { get; set; }
+
+        public Business() { }
+
         public Business(string name, string nit, string phone, string landline, string password, string email, string yearOfConstitution, string typeOfBusiness, string department, string town, string address, string ownerName, string ownerlastName)
         {
             Name = name;
@@ -28,6 +46,7 @@ namespace ExpoSoft.Domain.Entities
             Score = null;
             HistoricalScores = null;
         }
+<<<<<<< HEAD
         private string Name { get; set; }
         private string Nit { get; set; }
         private string Email { get; set; }
@@ -39,6 +58,8 @@ namespace ExpoSoft.Domain.Entities
         private string OwnerlastName { get; set; }
         private Score Score { get; set; }
         private List<HistoricalScore> HistoricalScores { get; set; }
+=======
+>>>>>>> origin/Dev
 
         public string ModifyName(string name)
         {

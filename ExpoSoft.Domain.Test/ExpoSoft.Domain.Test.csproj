@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExpoSoft.Domain\ExpoSoft.Domain.csproj" />
+    <ProjectReference Include="..\ExpoSoft.Infrastructure.Data\ExpoSoft.Infrastructure.Data.csproj" />
   </ItemGroup>
 
 </Project>

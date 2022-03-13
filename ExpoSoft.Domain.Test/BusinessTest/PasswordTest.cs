@@ -1,7 +1,5 @@
 ﻿using NUnit.Framework;
-using ExpoSoft.Domain.Entities;
-using ExpoSoft.Domain.Test.BusinessTest;
-
+using ExpoSoft.Infrastructure.Data.ObjectMother;
 
 namespace ExpoSoft.Domain.Test.BusinessTest
 {
