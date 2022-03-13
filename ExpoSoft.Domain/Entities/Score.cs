@@ -9,16 +9,20 @@ namespace ExpoSoft.Domain.Entities
 {
     public abstract class Score : Entity<int>
     {
-        private float IncreaseFactor { get; set; }
-        private float NationalSales { get; set; }
-        private float CompetitiveFactor { get; set; }
-        private float ExportIntention { get; set; }
-        private float ActivityPerception { get; set; }
-        private float InternationalExperience { get; set; }
-        private float FutureExperience { get; set; }
-        private float ManagerProfile { get; set; }
-        private float TotalScore { get; set; }
-        protected Score(float increaseFactor, float nationalSales, float competitiveFactor, float exportIntention, float activityPerception, float internationalExperience, float futureExperience, float managerProfile, float totalScore)
+        public float IncreaseFactor { get; private set; }
+        public float NationalSales { get; private set; }
+        public float CompetitiveFactor { get; private set; }
+        public float ExportIntention { get; private set; }
+        public float ActivityPerception { get; private set; }
+        public float InternationalExperience { get; private set; }
+        public float FutureExperience { get; private set; }
+        public float ManagerProfile { get; private set; }
+        public float TotalScore { get; private set; }
+        public DateTime StarDate { get; private set; }
+        public DateTime EndDate { get; private set; }
+
+        public Score() { }
+        protected Score(float increaseFactor, float nationalSales, float competitiveFactor, float exportIntention, float activityPerception, float internationalExperience, float futureExperience, float managerProfile, float totalScore, DateTime starDate, DateTime endDate)
         {
             IncreaseFactor = increaseFactor;
             NationalSales = nationalSales;
@@ -29,6 +33,8 @@ namespace ExpoSoft.Domain.Entities
             FutureExperience = futureExperience;
             ManagerProfile = managerProfile;
             TotalScore = totalScore;
+            StarDate = starDate;
+            EndDate = endDate;
         }
     }
 }
