@@ -124,23 +124,6 @@ namespace ExpoSoft.Domain.Entities
 
             throw new NotImplementedException();
         }
-        public string ModifyPhoneNumber(string phoneNumber)
-        {
-            if (!phoneNumber.Length.Equals(10))
-            {
-                return "El número celular debe tener 10 digitos.";
-            }
-            if (phoneNumber.Any(c => !char.IsNumber(c)))
-            {
-                return "El número celular solo puede contener números.";
-            }
-
-            if (phoneNumber.Length.Equals(10) && phoneNumber.Any(c => char.IsNumber(c)))
-            {
-                return $"¡El número telefonico {phoneNumber} es correcto!";
-            }
-            throw new NotImplementedException();
-        }
         public string ModifyEmail(string email)
         {
             if (email.Equals(""))
