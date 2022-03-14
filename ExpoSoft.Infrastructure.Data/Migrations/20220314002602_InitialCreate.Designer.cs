@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpoSoft.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ExpoSoftContext))]
-    [Migration("20220313032942_InitialCreate")]
+    [Migration("20220314002602_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,16 +24,10 @@ namespace ExpoSoft.Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Address")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Department")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Landline")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -51,9 +45,6 @@ namespace ExpoSoft.Infrastructure.Data.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Phone")
-                        .HasColumnType("TEXT");
-
                     b.Property<int?>("ScoreId")
                         .HasColumnType("INTEGER");
 
@@ -61,9 +52,6 @@ namespace ExpoSoft.Infrastructure.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("TypeOfBusiness")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("YearOfConstitution")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

@@ -21,11 +21,19 @@ namespace ExpoSoft.Infrastructure.WebApi.Controllers
         }
 
         [HttpPost("sign-in")]
-        public SignInResponse SignIn(SignInRequest request)
+        public ActionResult<SignInResponse> SignIn(SignInRequest request)
         {
             var service = new SignInService(_unitOfWork, _businessRepository);
             var response = service.SignIn(request);
-            return response;
+            return Ok(response);
+        }
+
+        [HttpPost("sign-up")]
+        public ActionResult<SignUpResponse> SignUp(SignUpRequest request)
+        {
+            var service = new SignUpService(_unitOfWork, _businessRepository);
+            var response = service.SignIn(request);
+            return Ok(response);
         }
     }
 }

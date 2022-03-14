@@ -6,7 +6,7 @@ using ExpoSoft.Domain.Base;
 
 namespace ExpoSoft.Domain.Contracts
 {
-    public interface IGenericRepository<T> where T : BaseEntity
+    public interface IGenericRepository<T> where T : BaseEntity, IAggregateRoot
     {
         T Find(object id);
         
