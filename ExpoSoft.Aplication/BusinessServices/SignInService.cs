@@ -30,5 +30,5 @@ namespace ExpoSoft.Aplication.BusinessServices
     }
 
     public record SignInRequest(string Email, string Password);
-    public record SignInResponse(int Code, string Messaga);
+    public record SignInResponse(int Code, string Message);
 }

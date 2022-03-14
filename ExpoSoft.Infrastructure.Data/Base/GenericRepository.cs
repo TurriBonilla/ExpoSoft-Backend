@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExpoSoft.Infrastructure.Data.Base
 {
-    public abstract class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
+    public abstract class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity, IAggregateRoot
     {
         protected IDbContext _db;
         protected readonly DbSet<T> _dbset;
@@ -18,6 +18,7 @@ namespace ExpoSoft.Infrastructure.Data.Base
             _db = context;
             _dbset = context.Set<T>();
         }
+
         public void Add(T entity)
         {
             _dbset.Add(entity);

@@ -39,6 +39,28 @@ namespace ExpoSoft.Domain.Entities
             HistoricalScores = null;
         }
 
+        public string SignUp(string name, string nit, string email, string password)
+        {
+            Nit = nit;
+            var resName = ModifyName(name);
+            if (resName.Equals($"¡El nombre {name} es correcto!"))
+            {
+                var resEmail = ModifyEmail(email);
+                if(resEmail.Equals($"¡El Email {email} es correcto!"))
+                {
+                    var resPass = ModifyPassword(password);
+                    if (resPass.Equals("¡La password es correcta!"))
+                    {
+                        return "Registro Exitoso.";
+                    }
+                    return resPass;
+                }
+                return resEmail;
+            }
+            return resName;
+
+        }
+
         public string ModifyName(string name)
         {
             if (name.Equals(""))
@@ -70,7 +92,8 @@ namespace ExpoSoft.Domain.Entities
                 );
             }) && name.Length >= 3 && name.Length <= 30)
             {
-                return $"¡El nombre {name} es correcto!";
+                Name = name;
+                return $"¡El nombre {Name} es correcto!";
             }
             throw new NotImplementedException();
         }
@@ -80,7 +103,7 @@ namespace ExpoSoft.Domain.Entities
             {
                 return "No puede ingresar una contraseña vacia.";
             }
-            if (Password.Equals(password))
+            if (password.Equals(Password))
             {
                 return "La contraseña que está intentando ingresar es igual a la anterior, intente con una contraseña diferente.";
             }
@@ -107,7 +130,7 @@ namespace ExpoSoft.Domain.Entities
                 return "La contraseña debe tener al menos una letra en minuscula, mayuscula, un número y un caracteres especial.";
             }
 
-            if (!password.Equals("") && !Password.Equals(password) && password.Length >= 8 && password.Length <= 15 && !password.Contains(" ") && password.Any(c => char.IsLower(c)) && password.Any(c => char.IsUpper(c)) && password.Any(c => char.IsNumber(c)) && password.Any(c =>
+            if (!password.Equals("") && !password.Equals(Password) && password.Length >= 8 && password.Length <= 15 && !password.Contains(" ") && password.Any(c => char.IsLower(c)) && password.Any(c => char.IsUpper(c)) && password.Any(c => char.IsNumber(c)) && password.Any(c =>
             {
                 int asciChar = (int)c;
 
@@ -119,6 +142,7 @@ namespace ExpoSoft.Domain.Entities
                 );
             }))
             {
+                Password = password;
                 return "¡La password es correcta!";
             }
 
@@ -151,10 +175,10 @@ namespace ExpoSoft.Domain.Entities
             {
                 return "El email no cumple con el formato establecido Ej: \"email@correo.com\".";
             }
-
             if (!email.Equals("") && new EmailAddressAttribute().IsValid(email))
             {
-                return $"¡El Email {email} es correcto!";
+                Email = email;
+                return $"¡El Email {Email} es correcto!";
             }
             throw new NotImplementedException();
         }
