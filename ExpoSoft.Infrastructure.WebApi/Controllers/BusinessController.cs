@@ -2,10 +2,6 @@
 using ExpoSoft.Domain.Contracts;
 using ExpoSoft.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ExpoSoft.Infrastructure.WebApi.Controllers
 {
@@ -33,6 +29,14 @@ namespace ExpoSoft.Infrastructure.WebApi.Controllers
         {
             var service = new SignUpService(_unitOfWork, _businessRepository);
             var response = service.SignIn(request);
+            return Ok(response);
+        }
+
+        [HttpPost("retrieve")]
+        public ActionResult<RetrieveResponse> Retrieve(RetrieveRequest request)
+        {
+            var service = new RetrieveService(_unitOfWork, _businessRepository);
+            var response = service.Retrieve(request);
             return Ok(response);
         }
     }
