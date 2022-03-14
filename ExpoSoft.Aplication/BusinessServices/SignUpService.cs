@@ -18,9 +18,9 @@ namespace ExpoSoft.Aplication.BusinessServices
         public SignUpResponse SignIn(SignUpRequest request)
         {
             var entityNIT = _businessRepository.FindFirstOrDefault(ent => ent.Nit == request.NIT);
-            var entityEmail = _businessRepository.FindFirstOrDefault(ent => ent.Nit == request.NIT);
-            if (entityEmail == null)
+            if (entityNIT == null)
             {
+                var entityEmail = _businessRepository.FindFirstOrDefault(ent => ent.Nit == request.NIT);
                 if (entityEmail == null)
                 {
                     var newEntity = new Business();
