@@ -19,7 +19,7 @@ namespace ExpoSoft.Aplication.BusinessServices
             var entity = _businessRepository.FindFirstOrDefault(ent => ent.Nit == request.NIT);
             if(entity != null)
             {
-                return new RetrieveResponse(400, "Consulta Exitosa.", new EntityResponse(entity.Nit, entity.Name, entity.Email, entity.TypeOfBusiness, entity.Department, entity.Town, entity.OwnerName, entity.OwnerlastName));
+                return new RetrieveResponse(200, "Consulta Exitosa.", new EntityResponse(entity.Nit, entity.Name, entity.Email, entity.TypeOfBusiness, entity.Department, entity.Town, entity.OwnerName, entity.OwnerlastName));
             }
             return new RetrieveResponse(400, $"No Existe la empresa con el NIT:{request.NIT}.", null);
         }

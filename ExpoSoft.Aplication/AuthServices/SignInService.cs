@@ -1,7 +1,7 @@
 ﻿using ExpoSoft.Domain.Contracts;
 using ExpoSoft.Domain.Repositories;
 
-namespace ExpoSoft.Aplication.BusinessServices
+namespace ExpoSoft.Aplication.AuthServices
 {
     public class SignInService
     {
@@ -14,21 +14,21 @@ namespace ExpoSoft.Aplication.BusinessServices
             _businessRepository = businessRepository;
         }
 
-        public SignInResponse SignIn(SignInRequest request)
+        public SignInResponse SignIn(SignInRequest request, string token)
         {
             var entity = _businessRepository.FindFirstOrDefault(ent => ent.Email == request.Email);
             if(entity != null)
             {
                 if(entity.Password == request.Password)
                 {
-                    return new SignInResponse(202, "Inicio de sesión correcto.");
+                    return new SignInResponse(202, "Inicio de sesión correcto.", entity.Nit, token);
                 }
-                return new SignInResponse(400, "Su Contraseña no es correcta.");
+                return new SignInResponse(400, "Su Contraseña no es correcta.", null, null);
             }
-            return new SignInResponse(400, $"No existe el usuario registrado con el correo {request.Email}.");
+            return new SignInResponse(400, $"No existe el usuario registrado con el correo {request.Email}.", null, null);
         }
     }
 
     public record SignInRequest(string Email, string Password);
-    public record SignInResponse(int Code, string Message);
+    public record SignInResponse(int Code, string Message, string NIT, string Token);
 }

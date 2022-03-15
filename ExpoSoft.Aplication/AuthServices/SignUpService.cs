@@ -2,7 +2,7 @@
 using ExpoSoft.Domain.Entities;
 using ExpoSoft.Domain.Repositories;
 
-namespace ExpoSoft.Aplication.BusinessServices
+namespace ExpoSoft.Aplication.AuthServices
 {
     public class SignUpService
     {
@@ -15,7 +15,7 @@ namespace ExpoSoft.Aplication.BusinessServices
             _businessRepository = businessRepository;
         }
 
-        public SignUpResponse SignIn(SignUpRequest request)
+        public SignUpResponse SignIn(SignUpRequest request, string token)
         {
             var entityNIT = _businessRepository.FindFirstOrDefault(ent => ent.Nit == request.NIT);
             if (entityNIT == null)
@@ -29,16 +29,16 @@ namespace ExpoSoft.Aplication.BusinessServices
                     {
                         _businessRepository.Add(newEntity);
                         _unitOfWork.Commit();
-                        return new SignUpResponse(201, resEntity, newEntity.Id);
+                        return new SignUpResponse(201, resEntity, newEntity.Nit, token);
                     }
-                    return new SignUpResponse(400, resEntity, -1);
+                    return new SignUpResponse(400, resEntity, null, null);
                 }
-                return new SignUpResponse(400, $"Ya existe una empresa con el correo {request.Email}.", -1);
+                return new SignUpResponse(400, $"Ya existe una empresa con el correo {request.Email}.", null, null);
             }
-            return new SignUpResponse(400, $"Ya existe una empresa con el NIT:{request.NIT}.", -1);
+            return new SignUpResponse(400, $"Ya existe una empresa con el NIT:{request.NIT}.", null, null);
         }
     }
 
     public record SignUpRequest(string NIT, string Name,string Email, string Password);
-    public record SignUpResponse(int Code, string Message, int Token);
+    public record SignUpResponse(int Code, string Message, string UserId, string Token);
 }

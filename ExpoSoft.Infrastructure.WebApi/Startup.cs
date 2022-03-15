@@ -3,13 +3,16 @@ using ExpoSoft.Domain.Repositories;
 using ExpoSoft.Infrastructure.Data;
 using ExpoSoft.Infrastructure.Data.Base;
 using ExpoSoft.Infrastructure.Data.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 namespace ExpoSoft.Infrastructure.WebApi
 {
@@ -34,6 +37,21 @@ namespace ExpoSoft.Infrastructure.WebApi
             services.AddScoped<IScoreRepository, ScoreRepository>();
             services.AddScoped<IHistoricalScoreRepository, HistoricalScoreRepository>();
 
+            var secretKey = Configuration.GetValue<string>("Secret");
+            services.AddAuthentication(auth => {
+                auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(jwt => {
+                jwt.RequireHttpsMetadata = false;
+                jwt.SaveToken = true;
+                jwt.TokenValidationParameters = new TokenValidationParameters() {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey)),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
             services.AddControllers();
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "ExpoSoft.Infrastructure.WebApi", Version = "v1" }));
         }
@@ -51,6 +69,8 @@ namespace ExpoSoft.Infrastructure.WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
