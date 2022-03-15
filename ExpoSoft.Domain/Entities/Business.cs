@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace ExpoSoft.Domain.Entities
 {
@@ -13,13 +14,16 @@ namespace ExpoSoft.Domain.Entities
         public string Name { get; private set; }
         public string Nit { get; private set; }
         public string Email { get; private set; }
+        [JsonIgnore]
         public string Password { get; private set; }
         public string TypeOfBusiness { get; private set; }
         public string Department { get; private set; }
         public string Town { get; private set; }
         public string OwnerName { get; private set; }
         public string OwnerlastName { get; private set; }
+        [JsonIgnore]
         public Score Score { get; private set; }
+        [JsonIgnore]
         public List<HistoricalScore> HistoricalScores { get; set; }
 
         public Business() { }
@@ -58,7 +62,6 @@ namespace ExpoSoft.Domain.Entities
                 return resEmail;
             }
             return resName;
-
         }
 
         public string ModifyName(string name)

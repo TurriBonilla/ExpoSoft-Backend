@@ -1,38 +1,33 @@
 ﻿using ExpoSoft.Aplication.BusinessServices;
 using ExpoSoft.Domain.Contracts;
 using ExpoSoft.Domain.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace ExpoSoft.Infrastructure.WebApi.Controllers
 {
+    [ApiController]
+    [Route("api/business")]
+    [Authorize]
     public class BusinessController : Controller
     {
         public readonly IUnitOfWork _unitOfWork;
         public readonly IBusinessRepository _businessRepository;
+        public readonly IConfiguration _configuration;
 
-        public BusinessController(IUnitOfWork unitOfWork, IBusinessRepository businessRepository)
+        public BusinessController(IUnitOfWork unitOfWork, IBusinessRepository businessRepository, IConfiguration configuration)
         {
             _unitOfWork = unitOfWork;
             _businessRepository = businessRepository;
+            _configuration = configuration;
         }
 
-        [HttpPost("sign-in")]
-        public ActionResult<SignInResponse> SignIn(SignInRequest request)
+        [HttpGet]
+        public ActionResult<RetrieveResponse> Retrieve(RetrieveRequest request)
         {
-            var service = new SignInService(_unitOfWork, _businessRepository);
-            var response = service.SignIn(request);
-            return Ok(response);
-        }
-
-        [HttpPost("sign-up")]
-        public ActionResult<SignUpResponse> SignUp(SignUpRequest request)
-        {
-            var service = new SignUpService(_unitOfWork, _businessRepository);
-            var response = service.SignIn(request);
+            var service = new RetrieveService(_unitOfWork, _businessRepository);
+            var response = service.Retrieve(request);
             return Ok(response);
         }
     }
