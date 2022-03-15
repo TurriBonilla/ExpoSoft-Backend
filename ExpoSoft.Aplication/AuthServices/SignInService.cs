@@ -1,5 +1,6 @@
 ﻿using ExpoSoft.Domain.Contracts;
 using ExpoSoft.Domain.Repositories;
+using Microsoft.AspNetCore.Http;
 
 namespace ExpoSoft.Aplication.AuthServices
 {
@@ -21,14 +22,14 @@ namespace ExpoSoft.Aplication.AuthServices
             {
                 if(entity.Password == request.Password)
                 {
-                    return new SignInResponse(202, "Inicio de sesión correcto.", entity.Nit, token);
+                    return new SignInResponse(StatusCodes.Status202Accepted, "Inicio de sesión correcto.", token, entity.Id);
                 }
-                return new SignInResponse(400, "Su Contraseña no es correcta.", null, null);
+                return new SignInResponse(StatusCodes.Status400BadRequest, "Su Contraseña no es correcta.", null, 0);
             }
-            return new SignInResponse(400, $"No existe el usuario registrado con el correo {request.Email}.", null, null);
+            return new SignInResponse(StatusCodes.Status400BadRequest, $"No existe el usuario registrado con el correo {request.Email}.", null, 0);
         }
     }
 
     public record SignInRequest(string Email, string Password);
-    public record SignInResponse(int Code, string Message, string NIT, string Token);
+    public record SignInResponse(int StatusCode, string Message, string Token, int UserId);
 }

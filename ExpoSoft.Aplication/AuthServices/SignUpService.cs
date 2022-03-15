@@ -1,6 +1,7 @@
 ﻿using ExpoSoft.Domain.Contracts;
 using ExpoSoft.Domain.Entities;
 using ExpoSoft.Domain.Repositories;
+using Microsoft.AspNetCore.Http;
 
 namespace ExpoSoft.Aplication.AuthServices
 {
@@ -29,16 +30,16 @@ namespace ExpoSoft.Aplication.AuthServices
                     {
                         _businessRepository.Add(newEntity);
                         _unitOfWork.Commit();
-                        return new SignUpResponse(201, resEntity, newEntity.Nit, token);
+                        return new SignUpResponse(StatusCodes.Status201Created, resEntity, token, newEntity.Id);
                     }
-                    return new SignUpResponse(400, resEntity, null, null);
+                    return new SignUpResponse(StatusCodes.Status406NotAcceptable, resEntity, null, 0);
                 }
-                return new SignUpResponse(400, $"Ya existe una empresa con el correo {request.Email}.", null, null);
+                return new SignUpResponse(StatusCodes.Status226IMUsed, $"Ya existe una empresa con el correo {request.Email}.", null, 0);
             }
-            return new SignUpResponse(400, $"Ya existe una empresa con el NIT:{request.NIT}.", null, null);
+            return new SignUpResponse(StatusCodes.Status226IMUsed, $"Ya existe una empresa con el NIT:{request.NIT}.", null, 0);
         }
     }
 
     public record SignUpRequest(string NIT, string Name,string Email, string Password);
-    public record SignUpResponse(int Code, string Message, string UserId, string Token);
+    public record SignUpResponse(int StatusCode, string Message, string Token, int UserId);
 }

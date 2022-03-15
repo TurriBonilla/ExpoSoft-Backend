@@ -3,6 +3,7 @@ using ExpoSoft.Domain.Contracts;
 using ExpoSoft.Domain.Repositories;
 using ExpoSoft.Infrastructure.WebApi.Security;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -32,7 +33,8 @@ namespace ExpoSoft.Infrastructure.WebApi.Controllers
 
             var service = new SignInService(_unitOfWork, _businessRepository);
             var response = service.SignIn(request, new Token(secret).Create(request.Email));
-            return Ok(response);
+
+            return StatusCode(response.StatusCode, response);
         }
 
         [HttpPost]
@@ -43,7 +45,7 @@ namespace ExpoSoft.Infrastructure.WebApi.Controllers
 
             var service = new SignUpService(_unitOfWork, _businessRepository);
             var response = service.SignIn(request, new Token(secret).Create(request.Email));
-            return Ok(response);
+            return StatusCode(response.StatusCode, response);
         }
     }
 }
