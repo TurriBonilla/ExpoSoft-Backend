@@ -62,7 +62,6 @@ namespace ExpoSoft.Domain.Entities
                 return resEmail;
             }
             return resName;
-
         }
 
         public string ModifyName(string name)
