@@ -145,7 +145,7 @@ namespace ExpoSoft.Domain.Entities
                 );
             }))
             {
-                Password = password;
+                Password = BCrypt.Net.BCrypt.HashPassword(password);
                 return "¡La password es correcta!";
             }
 

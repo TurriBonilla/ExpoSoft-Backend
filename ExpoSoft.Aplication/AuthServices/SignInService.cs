@@ -20,16 +20,17 @@ namespace ExpoSoft.Aplication.AuthServices
             var entity = _businessRepository.FindFirstOrDefault(ent => ent.Email == request.Email);
             if(entity != null)
             {
-                if(entity.Password == request.Password)
+                
+                if(BCrypt.Net.BCrypt.Verify(request.Password, entity.Password))
                 {
-                    return new SignInResponse(StatusCodes.Status202Accepted, "Inicio de sesión correcto.", token, entity.Id);
+                    return new SignInResponse(StatusCodes.Status202Accepted, "Inicio de sesión correcto.", token, entity.Nit);
                 }
-                return new SignInResponse(StatusCodes.Status400BadRequest, "Su Contraseña no es correcta.", null, 0);
+                return new SignInResponse(StatusCodes.Status400BadRequest, "Su Contraseña no es correcta.", null, null);
             }
-            return new SignInResponse(StatusCodes.Status400BadRequest, $"No existe el usuario registrado con el correo {request.Email}.", null, 0);
+            return new SignInResponse(StatusCodes.Status400BadRequest, $"No existe el usuario registrado con el correo {request.Email}.", null, null);
         }
     }
 
     public record SignInRequest(string Email, string Password);
-    public record SignInResponse(int StatusCode, string Message, string Token, int UserId);
+    public record SignInResponse(int StatusCode, string Message, string Token, string NIT);
 }

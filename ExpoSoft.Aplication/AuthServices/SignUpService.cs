@@ -30,16 +30,16 @@ namespace ExpoSoft.Aplication.AuthServices
                     {
                         _businessRepository.Add(newEntity);
                         _unitOfWork.Commit();
-                        return new SignUpResponse(StatusCodes.Status201Created, resEntity, token, newEntity.Id);
+                        return new SignUpResponse(StatusCodes.Status201Created, resEntity, token, newEntity.Nit);
                     }
-                    return new SignUpResponse(StatusCodes.Status406NotAcceptable, resEntity, null, 0);
+                    return new SignUpResponse(StatusCodes.Status406NotAcceptable, resEntity, null, null);
                 }
-                return new SignUpResponse(StatusCodes.Status226IMUsed, $"Ya existe una empresa con el correo {request.Email}.", null, 0);
+                return new SignUpResponse(StatusCodes.Status226IMUsed, $"Ya existe una empresa con el correo {request.Email}.", null, null);
             }
-            return new SignUpResponse(StatusCodes.Status226IMUsed, $"Ya existe una empresa con el NIT:{request.NIT}.", null, 0);
+            return new SignUpResponse(StatusCodes.Status226IMUsed, $"Ya existe una empresa con el NIT:{request.NIT}.", null, null);
         }
     }
 
     public record SignUpRequest(string NIT, string Name,string Email, string Password);
-    public record SignUpResponse(int StatusCode, string Message, string Token, int UserId);
+    public record SignUpResponse(int StatusCode, string Message, string Token, string NIT);
 }
