@@ -27,7 +27,7 @@ namespace ExpoSoft.Infrastructure.WebApi.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult<SignInResponse> SignIn([FromQuery]SignInRequest request)
+        public ActionResult<SignInResponse> SignIn(SignInRequest request)
         {
             string secret = _configuration.GetValue<string>("Secret");
 
