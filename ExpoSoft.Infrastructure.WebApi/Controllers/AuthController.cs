@@ -3,6 +3,7 @@ using ExpoSoft.Domain.Contracts;
 using ExpoSoft.Domain.Repositories;
 using ExpoSoft.Infrastructure.WebApi.Security;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,7 @@ namespace ExpoSoft.Infrastructure.WebApi.Controllers
             _configuration = configuration;
         }
 
+        [EnableCors]
         [HttpGet]
         [AllowAnonymous]
         public ActionResult<SignInResponse> SignIn(SignInRequest request)
@@ -37,6 +39,7 @@ namespace ExpoSoft.Infrastructure.WebApi.Controllers
             return StatusCode(response.StatusCode, response);
         }
 
+        [EnableCors]
         [HttpPost]
         [AllowAnonymous]
         public ActionResult<SignUpResponse> SignUp(SignUpRequest request)

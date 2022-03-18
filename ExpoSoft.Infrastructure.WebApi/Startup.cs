@@ -6,6 +6,7 @@ using ExpoSoft.Infrastructure.Data.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -52,6 +53,8 @@ namespace ExpoSoft.Infrastructure.WebApi
                 };
             });
 
+            services.AddCors();
+
             services.AddControllers();
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "ExpoSoft.Infrastructure.WebApi", Version = "v1" }));
         }
@@ -69,6 +72,8 @@ namespace ExpoSoft.Infrastructure.WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(opt => opt.AllowAnyOrigin().AllowAnyMethod());
 
             app.UseAuthentication();
 
