@@ -2,6 +2,7 @@
 using ExpoSoft.Domain.Contracts;
 using ExpoSoft.Domain.Repositories;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -23,6 +24,7 @@ namespace ExpoSoft.Infrastructure.WebApi.Controllers
             _configuration = configuration;
         }
 
+        [EnableCors]
         [HttpGet]
         public ActionResult<RetrieveResponse> Retrieve(RetrieveRequest request)
         {
