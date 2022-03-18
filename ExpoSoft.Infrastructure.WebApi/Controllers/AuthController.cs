@@ -26,7 +26,7 @@ namespace ExpoSoft.Infrastructure.WebApi.Controllers
             _configuration = configuration;
         }
 
-        [EnableCors]
+        [EnableCors("MyPolicy")]
         [HttpGet]
         [AllowAnonymous]
         public ActionResult<SignInResponse> SignIn(SignInRequest request)
@@ -39,7 +39,7 @@ namespace ExpoSoft.Infrastructure.WebApi.Controllers
             return StatusCode(response.StatusCode, response);
         }
 
-        [EnableCors]
+        [EnableCors("MyPolicy")]
         [HttpPost]
         [AllowAnonymous]
         public ActionResult<SignUpResponse> SignUp(SignUpRequest request)

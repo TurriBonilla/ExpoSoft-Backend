@@ -53,11 +53,15 @@ namespace ExpoSoft.Infrastructure.WebApi
                 };
             });
 
-            services.AddCors();
-
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
             services.AddControllers();
-            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "ExpoSoft.Infrastructure.WebApi", Version = "v1" }));
-        }
+                    services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "ExpoSoft.Infrastructure.WebApi", Version = "v1" }));
+            }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -73,7 +77,9 @@ namespace ExpoSoft.Infrastructure.WebApi
 
             app.UseRouting();
 
-            app.UseCors(opt => opt.AllowAnyOrigin().AllowAnyMethod());
+            app.UseCors("MyPolicy");
+
+            // app.UseMvc();
 
             app.UseAuthentication();
 

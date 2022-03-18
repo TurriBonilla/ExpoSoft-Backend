@@ -24,7 +24,7 @@ namespace ExpoSoft.Infrastructure.WebApi.Controllers
             _configuration = configuration;
         }
 
-        [EnableCors]
+        [EnableCors("MyPolicy")]
         [HttpGet]
         public ActionResult<RetrieveResponse> Retrieve(RetrieveRequest request)
         {
