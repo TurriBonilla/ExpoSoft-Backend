@@ -78,6 +78,7 @@ namespace ExpoSoft.Domain.Test.BusinessTest
             var business = BusinessMother.CreateBusiness();
             // ACT // ACCION // CUANDO // WHEN
             var resultado = business.ModifyName("123soka");
+
             //ASSERT //AFIRMACION //ENTONCES //THEN
             Assert.AreEqual("El nombre solo puede tener letras.", resultado);
         }
