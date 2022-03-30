@@ -21,7 +21,7 @@ namespace ExpoSoft.Aplication.AuthServices
             var entityNIT = _businessRepository.FindFirstOrDefault(ent => ent.Nit == request.NIT);
             if (entityNIT == null)
             {
-                var entityEmail = _businessRepository.FindFirstOrDefault(ent => ent.Nit == request.NIT);
+                var entityEmail = _businessRepository.FindFirstOrDefault(ent => ent.Email == request.Email);
                 if (entityEmail == null)
                 {
                     var newEntity = new Business();
